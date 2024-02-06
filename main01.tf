@@ -33,9 +33,9 @@ resource "azurerm_resource_group" "san_aks_rg" {
 }
 
 resource "azurerm_kubernetes_cluster" "san_aks" {
-  name                = var.cluster
-  location            = azurerm_resource_group.san_aks_rg.location
-  resource_group_name = azurerm_resource_group.san_aks_rg.name
+  name                = var.azurerm_kubernetes_cluster
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
   dns_prefix          = "san-aks"
 
   default_node_pool {
@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster" "san_aks" {
   }
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "sannp" {
+/*resource "azurerm_kubernetes_cluster_node_pool" "sannp" {
   name                  = "sannp"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.san_aks.id
   vm_size               = "Standard_DS2_v2"
@@ -59,4 +59,4 @@ resource "azurerm_kubernetes_cluster_node_pool" "sannp" {
   tags = {
     Environment = "test1"
   }
-}
+}*/
