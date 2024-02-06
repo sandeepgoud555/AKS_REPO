@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: aksdevopsacr.azurecr.io/custom2aksnginxapp1
+          image: sancr1.azurecr.io/capstone-nginx:$(Build.BuildId)
           ports:
             - containerPort: 80
 ---
