@@ -20,20 +20,27 @@ provider "azurerm" {
   }
 }
 
+/*resource "azurerm_resource_group" "san_aks_rg" {
+  name     = var.resource_group_name_prefix
+  location = var.resource_group_location
+}*/
+
+
+
 resource "azurerm_resource_group" "san_aks_rg" {
-  name     = "san_aks_rg"
-  location = "UK South"
+  location = var.resource_group_location
+  name     = var.resource_group_name
 }
 
 resource "azurerm_kubernetes_cluster" "san_aks" {
-  name                = "san_aks"
+  name                = var.cluster
   location            = azurerm_resource_group.san_aks_rg.location
   resource_group_name = azurerm_resource_group.san_aks_rg.name
   dns_prefix          = "san-aks"
 
   default_node_pool {
     name       = "sanpool"
-    node_count = 1
+    node_count = var.node_count
     vm_size    = "Standard_D2_v2"
   }
 
