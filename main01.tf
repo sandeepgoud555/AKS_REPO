@@ -37,6 +37,7 @@ resource "azurerm_kubernetes_cluster" "san_aks" {
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   dns_prefix          = "san-aks"
+  depends_on = [azurerm_resource_group.san_aks_rg]
 
   default_node_pool {
     name       = "sanpool"
