@@ -20,13 +20,6 @@ provider "azurerm" {
   }
 }
 
-/*resource "azurerm_resource_group" "san_aks_rg" {
-  name     = var.resource_group_name_prefix
-  location = var.resource_group_location
-}*/
-
-
-
 resource "azurerm_resource_group" "san_aks_rg" {
   location = var.resource_group_location
   name     = var.resource_group_name
