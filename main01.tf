@@ -51,13 +51,3 @@ resource "azurerm_kubernetes_cluster" "san_aks" {
   }
 }
 
-/*resource "azurerm_kubernetes_cluster_node_pool" "sannp" {
-  name                  = "sannp"
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.san_aks.id
-  vm_size               = "Standard_DS2_v2"
-  node_count            = 1
-
-  tags = {
-    Environment = "test1"
-  }
-}*/
