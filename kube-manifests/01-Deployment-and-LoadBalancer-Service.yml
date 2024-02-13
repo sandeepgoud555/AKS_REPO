@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: sancr1.azurecr.io/sandeepgoudaksrepo:$(Build.BuildId)
+          image: sancr1.azurecr.io/capstone-nginx:$(Build.BuildId)
           ports:
             - containerPort: 80
 ---
